@@ -1,7 +1,10 @@
-﻿uint size;
+﻿TestCountThreeSymbolElements();
+TestSortAndFillArray();
+
+uint sizeOfArray;
 try
 {
-    size = GetNumber("Enter size of the array: ");
+    sizeOfArray = GetNumber("Enter size of the array: ");
 }
 catch (FormatException ex)
 {
@@ -9,11 +12,49 @@ catch (FormatException ex)
     return;
 }
 
-string[] array = new string[size];
+string[] array = new string[sizeOfArray];
 FillArray(array);
 PrintArray(array);
 string[] sortedArray = SortAndFillArray(array);
 PrintSortedArray(sortedArray);
+
+
+
+void TestSortAndFillArray()
+{
+    Console.WriteLine("Testing of the \"SortAndFillArray\" method has been launched... ");
+    string[] testArray = { "1234", "1567", "-2", "computer science" };
+    string[] expected = { "-2" };
+    string[] actual = SortAndFillArray(testArray);
+    if (expected.SequenceEqual(actual))
+    {
+        Console.WriteLine("Test completed successfully!");
+    }
+    else
+    {
+        Console.WriteLine("Error! Need to fix the method!");
+    }
+    Console.WriteLine();
+}
+
+
+
+void TestCountThreeSymbolElements()
+{
+    Console.WriteLine("Testing of the \"CountThreeSymbolElements\" method has been launched... ");
+    string[] testArray = { "hello", "2", "world", ":-)" };
+    int expected = 2;
+    int actual = CountThreeSymbolElements(testArray);
+    if (expected == actual)
+    {
+        Console.WriteLine("Test completed successfully!");
+    }
+    else
+    {
+        Console.WriteLine("Error! Need to fix the method!");
+    }
+    Console.WriteLine();
+}
 
 
 
@@ -39,7 +80,7 @@ void PrintSortedArray(string[] array)
 
 string[] SortAndFillArray(string[] array)
 {
-    int sizeOfSortedArray = CountLettersOfArrayElement(array);
+    int sizeOfSortedArray = CountThreeSymbolElements(array);
     string[] sortedArray = new string[sizeOfSortedArray];
     int j = 0;
     for (int i = 0; i < array.Length; i++)
@@ -50,23 +91,22 @@ string[] SortAndFillArray(string[] array)
             j++;
         }
     }
-
     return sortedArray;
 }
 
 
 
-int CountLettersOfArrayElement(string[] array)
+int CountThreeSymbolElements(string[] array)
 {
-    int countLetters = 0;
+    int countElements = 0;
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
-            countLetters++;
+            countElements++;
         }
     }
-    return countLetters;
+    return countElements;
 }
 
 
