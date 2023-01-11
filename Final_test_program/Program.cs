@@ -11,11 +11,29 @@ catch (FormatException ex)
 
 string[] array = new string[size];
 FillArray(array);
-Console.WriteLine();
 PrintArray(array);
 string[] sortedArray = SortAndFillArray(array);
-Console.WriteLine();
-PrintArray(sortedArray);
+PrintSortedArray(sortedArray);
+
+
+
+void PrintSortedArray(string[] array)
+{
+    Console.WriteLine();
+    Console.WriteLine("Your sorted string array: ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < array.Length - 1)
+        {
+            Console.Write($"\"{array[i]}\", ");
+        }
+        else
+        {
+            Console.Write($"\"{array[i]}\"");
+        }
+    }
+    Console.WriteLine();
+}
 
 
 
@@ -55,6 +73,8 @@ int CountLettersOfArrayElement(string[] array)
 
 void PrintArray(string[] array)
 {
+    Console.WriteLine();
+    Console.WriteLine("Your string array: ");
     for (int i = 0; i < array.Length; i++)
     {
         if (i < array.Length - 1)
@@ -66,15 +86,17 @@ void PrintArray(string[] array)
             Console.Write($"\"{array[i]}\"");
         }
     }
+    Console.WriteLine();
 }
 
 
 
 void FillArray(string[] array)
 {
+    Console.WriteLine();
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"Enter {i + 1} string: ");
+        Console.Write($"Enter {i + 1} string (element of the array): ");
         array[i] = Console.ReadLine();
     }
 }
