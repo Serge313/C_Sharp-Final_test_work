@@ -1,4 +1,6 @@
-﻿TestCountThreeSymbolElements();
+﻿// Leave strings of 3 letters
+
+TestCountThreeSymbolElements();
 TestSortAndFillArray();
 
 uint sizeOfArray;
